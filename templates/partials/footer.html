@@ -1,0 +1,19 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a class="brand" href="{% url 'main:home' %}">
+        LYNX<span>FLOW</span>
+      </a>
+      <p>Внедрение CRM и автоматизация бизнес-процессов в Алматы.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Навигация в подвале">
+      <a href="{% url 'main:home' %}#about">О нас</a>
+      <a href="{% url 'main:home' %}#services">Услуги</a>
+      <a href="{% url 'cases:list' %}">Кейсы</a>
+      <a href="{% url 'main:home' %}#contact">Контакты</a>
+    </nav>
+
+    <p class="copyright">© {% now "Y" %} LYNXFLOW</p>
+  </div>
+</footer>

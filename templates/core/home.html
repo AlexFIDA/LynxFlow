@@ -1,0 +1,419 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ page_title }} — LYNXFLOW{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero section section--dark">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="eyebrow">CRM · интеграции · автоматизация</p>
+
+      <h1>
+        Ваши процессы<br>
+        должны работать<br>
+        <span>без вас</span>
+      </h1>
+
+      <p class="hero__lead">
+        Внедряем CRM и автоматизируем бизнес-процессы,
+        чтобы команда занималась ростом, а не рутиной.
+      </p>
+
+      <a class="button" href="#contact">
+        Обсудить задачу <span aria-hidden="true">→</span>
+      </a>
+
+      <ul class="hero__facts" aria-label="Преимущества">
+        <li>Прозрачные решения</li>
+        <li>Реальные результаты</li>
+        <li>Без лишних сервисов</li>
+      </ul>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <div class="hero-art__glow"></div>
+      <div class="hero-art__shape hero-art__shape--one"></div>
+      <div class="hero-art__shape hero-art__shape--two"></div>
+      <div class="hero-art__shape hero-art__shape--three"></div>
+      <p>SYSTEMS<br>PEOPLE<br>GROWTH</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark problem" id="about" aria-labelledby="problem-title">
+  <div class="container">
+    <p class="eyebrow">Проблема</p>
+
+    <h2 id="problem-title">Где теряются<br>деньги</h2>
+
+    <ul class="problem-grid">
+      <li class="problem-card">
+        <div class="problem-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h8A2.5 2.5 0 0 1 17 5.5v5A2.5 2.5 0 0 1 14.5 13H10l-3.5 3v-3H6.5A2.5 2.5 0 0 1 4 10.5v-5Z" />
+            <path d="M19 9v7.5A2.5 2.5 0 0 1 16.5 19H15v2l-3-2h-1.5" />
+          </svg>
+        </div>
+
+        <h3>Заявки остаются в личных чатах</h3>
+
+        <p>
+          Клиент пишет в Telegram, WhatsApp или Instagram —
+          сообщение легко потерять или ответить слишком поздно.
+        </p>
+      </li>
+
+      <li class="problem-card">
+        <div class="problem-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="9" cy="8" r="3" />
+            <path d="M3.5 19c.5-3.1 2.4-5 5.5-5s5 1.9 5.5 5" />
+            <path d="M16 6h5M16 11h5M16 16h5" />
+          </svg>
+        </div>
+
+        <h3>Нет полной истории клиента</h3>
+
+        <p>
+          Договорённости, звонки, оплаты и сообщения хранятся
+          в разных сервисах — сотрудник не видит всю картину.
+        </p>
+      </li>
+
+      <li class="problem-card">
+        <div class="problem-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M19 8a7.5 7.5 0 0 0-13.3-2.9L4 7" />
+            <path d="M4 3v4h4" />
+            <path d="M5 16a7.5 7.5 0 0 0 13.3 2.9L20 17" />
+            <path d="M20 21v-4h-4" />
+            <path d="M12 8v4l2.5 1.5" />
+          </svg>
+        </div>
+
+        <h3>Рутина съедает рабочее время</h3>
+
+        <p>
+          Напоминания, статусы и отчёты создаются вручную.
+          Это замедляет команду и приводит к повторяющимся ошибкам.
+        </p>
+      </li>
+
+      <li class="problem-card">
+        <div class="problem-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 19V5" />
+            <path d="M4 19h16" />
+            <path d="m7 15 4-4 3 2 5-6" />
+            <path d="M16 7h3v3" />
+          </svg>
+        </div>
+
+        <h3>Рост усиливает хаос</h3>
+
+        <p>
+          Больше заявок и сотрудников означает больше ручной работы.
+          Бизнес становится сложнее контролировать и масштабировать.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--surface solution" aria-labelledby="solution-title">
+  <div class="container">
+    <div class="solution-heading">
+      <div>
+        <p class="eyebrow">Решение</p>
+        <h2 id="solution-title">Собираем<br>систему</h2>
+      </div>
+
+      <div class="solution-heading__intro">
+        <p>
+          Проектируем, внедряем и настраиваем CRM под ваш бизнес.
+          Интегрируем сервисы и автоматизируем повторяющиеся действия.
+        </p>
+
+        <a class="button button--dark" href="#process">
+          Как это работает <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="automation-map">
+      <svg
+        class="automation-map__connections"
+        viewBox="0 0 1200 440"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <marker
+            id="arrow"
+            markerWidth="8"
+            markerHeight="8"
+            refX="7"
+            refY="4"
+            orient="auto"
+          >
+            <path d="M0,0 L8,4 L0,8 Z" fill="#c6ff2e"></path>
+          </marker>
+        </defs>
+
+        <path class="connection" d="M270 90 C390 90, 405 170, 500 195" />
+        <path class="connection" d="M270 220 C380 220, 410 220, 500 220" />
+        <path class="connection" d="M270 350 C390 350, 405 270, 500 245" />
+
+        <path class="connection connection--bright" d="M700 220 C800 220, 820 75, 930 75" />
+        <path class="connection connection--bright" d="M700 220 C800 220, 820 165, 930 165" />
+        <path class="connection connection--bright" d="M700 220 C800 220, 820 275, 930 275" />
+        <path class="connection connection--bright" d="M700 220 C800 220, 820 365, 930 365" />
+      </svg>
+
+      <div class="automation-stack automation-stack--sources">
+        <article class="flow-node">
+          <span class="flow-node__type">Источник</span>
+          <strong>Сайт</strong>
+          <small>форма, квиз, заявка</small>
+        </article>
+
+        <article class="flow-node">
+          <span class="flow-node__type">Источник</span>
+          <strong>Telegram / WhatsApp</strong>
+          <small>обращения из мессенджеров</small>
+        </article>
+
+        <article class="flow-node">
+          <span class="flow-node__type">Источник</span>
+          <strong>Email</strong>
+          <small>входящие письма</small>
+        </article>
+      </div>
+
+      <article class="crm-node">
+        <span class="crm-node__eyebrow">Центр системы</span>
+        <strong>CRM</strong>
+        <p>Единая база клиентов, задач и сделок.</p>
+      </article>
+
+      <div class="automation-stack automation-stack--results">
+        <article class="flow-node">
+          <span class="flow-node__type">Результат</span>
+          <strong>Автоматизация</strong>
+          <small>задачи и напоминания</small>
+        </article>
+
+        <article class="flow-node">
+          <span class="flow-node__type">Результат</span>
+          <strong>Воронка продаж</strong>
+          <small>статусы и контроль сделок</small>
+        </article>
+
+        <article class="flow-node">
+          <span class="flow-node__type">Результат</span>
+          <strong>Аналитика</strong>
+          <small>понятные показатели</small>
+        </article>
+
+        <article class="flow-node">
+          <span class="flow-node__type">Результат</span>
+          <strong>Повторные продажи</strong>
+          <small>работа с текущими клиентами</small>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface pricing" id="services" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="pricing__heading">
+      <div>
+        <p class="eyebrow">Форматы работы</p>
+        <h2 id="pricing-title">Выберите<br>точку старта</h2>
+      </div>
+
+      <div class="pricing__intro">
+        <p>
+          Можно начать с сайта, CRM или собрать оба инструмента
+          в одну систему, которая приводит и не теряет заявки.
+        </p>
+
+        <div class="pricing-controls" aria-label="Управление тарифами">
+          <button
+            class="pricing-control"
+            type="button"
+            data-pricing-prev
+            aria-label="Предыдущий тариф"
+          >
+            ←
+          </button>
+
+          <button
+            class="pricing-control"
+            type="button"
+            data-pricing-next
+            aria-label="Следующий тариф"
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-carousel" data-pricing-carousel>
+      <div class="pricing-track" id="pricing-track" data-pricing-track>
+        <article class="pricing-card">
+          <p class="pricing-card__type">01 · Создание сайта</p>
+
+          <h3>Сайт,<br>который приводит заявки</h3>
+
+          <p class="pricing-card__description">
+            Проектируем понятный сайт под ваш продукт,
+            аудиторию и реальный сценарий продажи.
+          </p>
+
+          <ul class="pricing-card__features">
+            <li>Структура и прототип страниц</li>
+            <li>Дизайн и адаптивная вёрстка</li>
+            <li>Формы заявок и аналитика</li>
+          </ul>
+
+          <div class="pricing-card__footer">
+            <span>Индивидуальный расчёт</span>
+            <a href="#contact">Обсудить →</a>
+          </div>
+        </article>
+
+        <article class="pricing-card">
+          <p class="pricing-card__type">02 · Внедрение amoCRM</p>
+
+          <h3>CRM,<br>которая держит процесс</h3>
+
+          <p class="pricing-card__description">
+            Настраиваем amoCRM под вашу команду,
+            продажи и процессы работы с клиентами.
+          </p>
+
+          <ul class="pricing-card__features">
+            <li>Воронки, статусы и роли команды</li>
+            <li>Интеграции с сайтом и мессенджерами</li>
+            <li>Автоматизация и обучение сотрудников</li>
+          </ul>
+
+          <div class="pricing-card__footer">
+            <span>Индивидуальный расчёт</span>
+            <a href="#contact">Обсудить →</a>
+          </div>
+        </article>
+
+        <article class="pricing-card pricing-card--featured">
+          <span class="pricing-card__badge">Оптимальный вариант</span>
+
+          <p class="pricing-card__type">03 · Сайт + amoCRM</p>
+
+          <h3>Единая система<br>привлечения и продаж</h3>
+
+          <p class="pricing-card__description">
+            Сайт передаёт каждую заявку в настроенную CRM,
+            а команда видит весь путь клиента без ручной работы.
+          </p>
+
+          <ul class="pricing-card__features">
+            <li>Создание сайта под лидогенерацию</li>
+            <li>Внедрение и настройка amoCRM</li>
+            <li>Интеграции, аналитика и автоматизация</li>
+          </ul>
+
+          <div class="pricing-card__footer">
+            <span>Комплексный проект</span>
+            <a href="#contact">Обсудить →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark process" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="process__heading">
+      <div>
+        <p class="eyebrow">Процесс</p>
+        <h2 id="process-title">Четыре шага</h2>
+      </div>
+
+      <p>
+        От первого разбора задачи до запуска и поддержки системы.
+        Без лишних согласований и непонятных этапов.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <span>01</span>
+        <h3>Анализируем</h3>
+        <p>Разбираемся в целях, процессах и текущих инструментах.</p>
+      </li>
+
+      <li>
+        <span>02</span>
+        <h3>Проектируем</h3>
+        <p>Предлагаем архитектуру решения и согласуем детали.</p>
+      </li>
+
+      <li>
+        <span>03</span>
+        <h3>Внедряем</h3>
+        <p>Настраиваем сайт, CRM, интеграции и автоматизацию.</p>
+      </li>
+
+      <li>
+        <span>04</span>
+        <h3>Передаём и поддерживаем</h3>
+        <p>Обучаем команду, запускаем систему и остаёмся на связи.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section--surface team" id="team">
+  <div class="container team__grid">
+    <div>
+      <p class="eyebrow">Команда</p>
+      <h2>Двое.<br>Без прослойки.</h2>
+    </div>
+
+    <p>
+      Вы общаетесь напрямую с теми, кто проектирует и внедряет решение.
+      Без аккаунт-менеджеров, потери контекста и лишних согласований.
+    </p>
+  </div>
+</section>
+
+<section class="section section--dark contact" id="contact">
+  <div class="container contact__grid">
+    <div>
+      <p class="eyebrow">Контакты</p>
+      <h2>Расскажите,<br>что ломается</h2>
+    </div>
+
+    <div>
+      <p class="contact__text">
+        Опишите задачу — разберёмся и предложим решение.
+        Это ни к чему не обязывает.
+      </p>
+
+      <p class="contact__note">
+        На следующем шаге подключим рабочую форму заявки,
+        Telegram или другой выбранный канал связи.
+      </p>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{% url 'main:home' %}" aria-label="LYNXFLOW — на главную">
+      LYNX<span>FLOW</span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+    >
+      <span class="visually-hidden">Открыть меню</span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Основная навигация">
+      <a href="{% url 'main:home' %}#about">О нас</a>
+      <a href="{% url 'main:home' %}#services">Услуги</a>
+      <a href="{% url 'main:home' %}#process">Процесс</a>
+      <a href="{% url 'cases:list' %}">Кейсы</a>
+      <a href="{% url 'main:home' %}#contact">Контакты</a>
+    </nav>
+
+    <a class="button button--header" href="{% url 'main:home' %}#contact">
+      Обсудить задачу <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>

@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}{{ page_title|default:"LYNXFLOW" }}{% endblock %}</title>
+
+  <meta
+    name="description"
+    content="{% block meta_description %}{{ meta_description|default:'Внедрение CRM и автоматизация бизнес-процессов в Алматы.' }}{% endblock %}"
+  >
+
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_KZ">
+  <meta property="og:title" content="{{ page_title|default:'LYNXFLOW' }}">
+  <meta
+    property="og:description"
+    content="{{ meta_description|default:'Внедрение CRM и автоматизация бизнес-процессов в Алматы.' }}"
+  >
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Roboto+Condensed:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#content">Перейти к содержимому</a>
+
+  {% include "partials/header.html" %}
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.html" %}
+
+  <script src="{% static 'js/menu.js' %}" defer></script>
+  <script src="{% static 'js/main.js' %}" defer></script>
+</body>
+</html>
