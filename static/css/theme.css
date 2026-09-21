@@ -1,0 +1,402 @@
+/*
+  Темы сайта.
+  Тёмная тема — это стили по умолчанию из base.css и home.css.
+  Бумажная тема включается атрибутом data-theme="paper" на <html>
+  и целиком описана в этом файле, поэтому тёмную тему он не трогает.
+*/
+
+/* Переключатель темы (общий для обеих тем) */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-dark);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--lime);
+  color: var(--paper);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--lime);
+  outline-offset: 3px;
+}
+
+.theme-toggle__icon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.theme-toggle__to-dark {
+  display: none;
+}
+
+html[data-theme="paper"] .theme-toggle__to-paper {
+  display: none;
+}
+
+html[data-theme="paper"] .theme-toggle__to-dark {
+  display: inline;
+}
+
+@media (max-width: 860px) {
+  .theme-toggle {
+    margin-left: auto;
+  }
+
+  .site-header__inner .nav-toggle {
+    order: 1;
+    margin-left: 4px;
+  }
+}
+
+/* Рисованная схема в hero видна только в бумажной теме */
+
+.hero-sketch {
+  display: none;
+}
+
+/* ============================================================
+   БУМАЖНАЯ ТЕМА
+   ============================================================ */
+
+html[data-theme="paper"] {
+  --ink: #f3eee2;
+  --ink-soft: #fbf8f1;
+  --surface: #eae3d2;
+  --surface-elevated: #fffdf8;
+
+  --paper: #1f211d;
+  --muted: #595b53;
+  --lime: #c6ff2e;
+  --accent-text: #4a7300;
+
+  --line-dark: rgba(31, 33, 29, 0.2);
+  --line-light: rgba(31, 33, 29, 0.14);
+
+  --sheet: #fffdf8;
+  --sheet-shadow: 0 1px 0 rgba(60, 45, 20, 0.05), 0 14px 22px -16px rgba(60, 45, 20, 0.45);
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.3 0 0 0 0 0.2 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+html[data-theme="paper"] body {
+  color-scheme: light;
+}
+
+/* Фон «бумага»: цвет + лёгкое зерно */
+
+html[data-theme="paper"] body,
+html[data-theme="paper"] .section--dark,
+html[data-theme="paper"] .section--surface,
+html[data-theme="paper"] .section--light,
+html[data-theme="paper"] .site-footer {
+  background-image: var(--paper-grain);
+}
+
+/* Маркер: лаймовая полоса под текстом, как выделитель */
+
+html[data-theme="paper"] .hero h1 span,
+html[data-theme="paper"] .brand span {
+  color: var(--paper);
+  background: linear-gradient(
+    176deg,
+    transparent 0 52%,
+    var(--lime) 52% 90%,
+    transparent 90%
+  );
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+html[data-theme="paper"] .hero h1 span {
+  padding: 0 0.08em;
+}
+
+html[data-theme="paper"] .eyebrow,
+html[data-theme="paper"] .section--surface .eyebrow {
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--lime);
+  color: var(--paper);
+  transform: rotate(-1.5deg);
+}
+
+/* Шапка и подвал */
+
+html[data-theme="paper"] .site-nav a,
+html[data-theme="paper"] .footer-nav a {
+  color: var(--muted);
+}
+
+html[data-theme="paper"] .site-nav a:hover,
+html[data-theme="paper"] .site-nav a:focus-visible,
+html[data-theme="paper"] .footer-nav a:hover,
+html[data-theme="paper"] .footer-nav a:focus-visible {
+  color: var(--paper);
+  background: linear-gradient(transparent 60%, var(--lime) 60% 92%, transparent 92%);
+}
+
+html[data-theme="paper"] .theme-toggle {
+  border: 1.5px solid var(--paper);
+  background: var(--sheet);
+  color: var(--paper);
+  box-shadow: 2px 2px 0 var(--paper);
+}
+
+html[data-theme="paper"] .theme-toggle:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--paper);
+}
+
+/* Кнопки: лаймовый стикер с чернильным контуром */
+
+html[data-theme="paper"] .button {
+  border: 1.5px solid var(--paper);
+  background: var(--lime);
+  color: var(--paper);
+  box-shadow: 3px 3px 0 var(--paper);
+}
+
+html[data-theme="paper"] .button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--paper);
+}
+
+html[data-theme="paper"] .button:focus-visible,
+html[data-theme="paper"] .theme-toggle:focus-visible,
+html[data-theme="paper"] .nav-toggle:focus-visible {
+  outline-color: var(--paper);
+}
+
+html[data-theme="paper"] .skip-link {
+  color: var(--paper);
+}
+
+/* Hero: вместо неоновых ромбов — рисованная схема */
+
+html[data-theme="paper"] .hero-art__glow,
+html[data-theme="paper"] .hero-art__shape,
+html[data-theme="paper"] .hero-art > p {
+  display: none;
+}
+
+html[data-theme="paper"] .hero-art {
+  display: grid;
+  margin: 0;
+  overflow: visible;
+  place-items: center;
+}
+
+html[data-theme="paper"] .hero-sketch {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+}
+
+.hero-sketch__note {
+  fill: var(--sheet, #fffdf8);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+
+.hero-sketch__line {
+  fill: none;
+  stroke: var(--paper);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.4;
+}
+
+.hero-sketch__marker {
+  fill: var(--lime);
+}
+
+.hero-sketch__text {
+  fill: var(--paper);
+  font-family: "Caveat", "Comic Sans MS", cursive;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.hero-sketch__text--big {
+  font-size: 64px;
+}
+
+html[data-theme="paper"] .hero__facts li::before {
+  color: var(--accent-text);
+}
+
+/* Листы бумаги: карточки лежат на столе, слегка повёрнуты */
+
+html[data-theme="paper"] .problem-card,
+html[data-theme="paper"] .pricing-card,
+html[data-theme="paper"] .flow-node {
+  border: 1.5px solid var(--paper);
+  background: var(--sheet);
+  box-shadow: var(--sheet-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+html[data-theme="paper"] .problem-card:nth-child(1) { transform: rotate(-0.8deg); }
+html[data-theme="paper"] .problem-card:nth-child(2) { transform: rotate(0.6deg); }
+html[data-theme="paper"] .problem-card:nth-child(3) { transform: rotate(0.5deg); }
+html[data-theme="paper"] .problem-card:nth-child(4) { transform: rotate(-0.7deg); }
+
+html[data-theme="paper"] .problem-card:hover {
+  transform: rotate(0) translateY(-4px);
+}
+
+html[data-theme="paper"] .problem-card__icon {
+  border: 1.5px solid var(--paper);
+  background: var(--lime);
+  color: var(--paper);
+}
+
+/* Схема «Решение» */
+
+html[data-theme="paper"] .automation-map {
+  border: 1.5px dashed var(--line-dark);
+  background: rgba(255, 253, 248, 0.55);
+}
+
+html[data-theme="paper"] .connection,
+html[data-theme="paper"] .connection--bright {
+  stroke: var(--paper);
+  stroke-width: 1.6;
+  opacity: 0.55;
+}
+
+html[data-theme="paper"] .automation-map marker path {
+  fill: var(--paper);
+}
+
+html[data-theme="paper"] .flow-node__type,
+html[data-theme="paper"] .crm-node__eyebrow,
+html[data-theme="paper"] .pricing-card__type,
+html[data-theme="paper"] .pricing-card__footer a {
+  color: var(--accent-text);
+}
+
+html[data-theme="paper"] .flow-node:hover {
+  border-color: var(--paper);
+  background: var(--sheet);
+  box-shadow: 3px 3px 0 var(--paper);
+  transform: translate(-2px, -2px);
+}
+
+html[data-theme="paper"] .crm-node {
+  border: 1.5px solid var(--paper);
+  border-radius: 50% / 46%;
+  background: var(--sheet);
+  box-shadow: var(--sheet-shadow);
+}
+
+html[data-theme="paper"] .crm-node:hover {
+  background: var(--sheet);
+  box-shadow: 3px 3px 0 var(--paper);
+  transform: translateY(-3px);
+}
+
+html[data-theme="paper"] .crm-node strong {
+  justify-self: center;
+  padding: 0 0.1em;
+  color: var(--paper);
+  background: linear-gradient(transparent 45%, var(--lime) 45% 88%, transparent 88%);
+}
+
+/* Тарифы */
+
+html[data-theme="paper"] .pricing-card:nth-child(1) { transform: rotate(-0.6deg); }
+html[data-theme="paper"] .pricing-card:nth-child(2) { transform: rotate(0.5deg); }
+html[data-theme="paper"] .pricing-card:nth-child(3) { transform: rotate(-0.3deg); }
+
+html[data-theme="paper"] .pricing-card:hover {
+  border-color: var(--paper);
+  background: var(--sheet);
+  box-shadow: 5px 5px 0 var(--paper);
+  transform: rotate(0) translate(-2px, -4px);
+}
+
+html[data-theme="paper"] .pricing-card--featured {
+  border-width: 2px;
+  background: var(--sheet);
+}
+
+/* кусочек лаймового «скотча» на выделенном тарифе */
+html[data-theme="paper"] .pricing-card--featured::before {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 96px;
+  height: 26px;
+  background: rgba(198, 255, 46, 0.8);
+  content: "";
+  transform: translateX(-50%) rotate(-3deg);
+}
+
+html[data-theme="paper"] .pricing-card__badge {
+  border: 1.5px solid var(--paper);
+  color: var(--paper);
+}
+
+html[data-theme="paper"] .pricing-card__features li::before {
+  border: 1.5px solid var(--paper);
+  background: var(--lime);
+}
+
+/* Процесс: рукописные цифры на лаймовом пятне */
+
+html[data-theme="paper"] .steps__number {
+  padding: 0.05em 0.22em 0.12em;
+  border-radius: 46% 54% 50% 48% / 55% 45% 55% 45%;
+  background: var(--lime);
+  color: var(--paper);
+}
+
+/* Контакты и FAQ */
+
+html[data-theme="paper"] .contact::after {
+  border: 1.5px dashed var(--paper);
+  opacity: 0.3;
+}
+
+html[data-theme="paper"] .contact__note {
+  color: var(--accent-text);
+}
+
+html[data-theme="paper"] .faq__placeholder {
+  border-color: var(--paper);
+  background: rgba(255, 253, 248, 0.5);
+}
+
+@media (max-width: 860px) {
+  html[data-theme="paper"] .site-header {
+    background-image: var(--paper-grain);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="paper"] .problem-card,
+  html[data-theme="paper"] .pricing-card {
+    transform: none;
+  }
+}

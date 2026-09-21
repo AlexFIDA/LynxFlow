@@ -5,6 +5,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script>
+    // Тема ставится до загрузки стилей, чтобы страница не мигала.
+    // Ссылка вида ?theme=paper или ?theme=dark включает тему и запоминает её.
+    (function () {
+      var key = "lynxflow-theme";
+      var fromUrl = new URLSearchParams(location.search).get("theme");
+      var theme = null;
+
+      try {
+        if (fromUrl === "paper" || fromUrl === "dark") {
+          localStorage.setItem(key, fromUrl);
+        }
+        theme = localStorage.getItem(key);
+      } catch (error) {
+        theme = fromUrl;
+      }
+
+      if (theme === "paper") {
+        document.documentElement.setAttribute("data-theme", "paper");
+      }
+    })();
+  </script>
+
   <title>{% block title %}{{ page_title|default:"LYNXFLOW" }}{% endblock %}</title>
 
   <meta
@@ -27,12 +50,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Roboto+Condensed:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Roboto+Condensed:wght@500;600;700&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% block extra_css %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/theme.css' %}">
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
@@ -48,5 +72,6 @@
 
   <script src="{% static 'js/menu.js' %}" defer></script>
   <script src="{% static 'js/main.js' %}" defer></script>
+  <script src="{% static 'js/theme.js' %}" defer></script>
 </body>
 </html>

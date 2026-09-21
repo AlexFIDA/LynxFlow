@@ -23,6 +23,15 @@
       <a href="{% url 'main:home' %}#contact">Контакты</a>
     </nav>
 
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Переключить тему оформления">
+      <svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 20l3.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20z" />
+        <path d="M13.5 6.5l3 3" />
+      </svg>
+      <span class="theme-toggle__to-paper">Бумага</span>
+      <span class="theme-toggle__to-dark">Тёмная</span>
+    </button>
+
     <a class="button button--header" href="{% url 'main:home' %}#contact">
       Обсудить задачу <span aria-hidden="true">→</span>
     </a>
