@@ -168,7 +168,7 @@
   </div>
 </section>
 
-<section class="section section--surface solution" aria-labelledby="solution-title">
+<section class="section section--surface solution" id="solution" aria-labelledby="solution-title">
   <div class="container">
     <div class="solution-heading">
       <div>
@@ -290,7 +290,7 @@
 
         <div class="pricing-card__footer">
           <span>Индивидуальный расчёт</span>
-          <a href="#contact">Обсудить →</a>
+          <a href="#contact" data-service="site">Обсудить →</a>
         </div>
       </article>
 
@@ -312,7 +312,7 @@
 
         <div class="pricing-card__footer">
           <span>Индивидуальный расчёт</span>
-          <a href="#contact">Обсудить →</a>
+          <a href="#contact" data-service="amo">Обсудить →</a>
         </div>
       </article>
 
@@ -336,7 +336,7 @@
 
         <div class="pricing-card__footer">
           <span>Комплексный проект</span>
-          <a href="#contact">Обсудить →</a>
+          <a href="#contact" data-service="site-amo">Обсудить →</a>
         </div>
       </article>
     </div>
@@ -435,21 +435,229 @@
         Это ни к чему не обязывает.
       </p>
 
-      <p class="contact__note">
-        На следующем шаге подключим рабочую форму заявки,
-        Telegram или другой выбранный канал связи.
-      </p>
+      <form class="contact-form" data-whatsapp-form novalidate>
+        <div class="contact-form__field">
+          <label for="contact-name">Имя</label>
+          <input
+            id="contact-name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            placeholder="Как к вам обращаться"
+            required
+          >
+        </div>
+
+        <fieldset class="contact-form__field contact-form__services">
+          <legend>Что нужно</legend>
+
+          <label class="contact-form__option">
+            <input type="radio" name="service" value="Создание сайта" data-service="site" required>
+            <span>Сайт</span>
+          </label>
+
+          <label class="contact-form__option">
+            <input type="radio" name="service" value="Внедрение amoCRM" data-service="amo">
+            <span>amoCRM</span>
+          </label>
+
+          <label class="contact-form__option">
+            <input type="radio" name="service" value="Сайт + amoCRM" data-service="site-amo">
+            <span>Сайт + amoCRM</span>
+          </label>
+        </fieldset>
+
+        <div class="contact-form__field">
+          <label for="contact-comment">Комментарий</label>
+          <textarea
+            id="contact-comment"
+            name="comment"
+            rows="4"
+            placeholder="Коротко о задаче: что сейчас не так и что хотите получить"
+          ></textarea>
+        </div>
+
+        <p class="contact-form__error" data-form-error hidden>
+          Укажите имя и выберите, что нужно.
+        </p>
+
+        <button class="button contact-form__submit" type="submit">
+          <svg class="contact-form__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" />
+            <path d="M8.8 8.6c.2-.4.5-.4.8-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .5-.1.6l-.5.6c.6 1.2 1.6 2.1 2.8 2.7l.6-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.6v.5c0 .3-.1.6-.4.8-.6.4-1.4.6-2.2.4-2.6-.7-4.9-3-5.6-5.6-.2-.8 0-1.6.4-2.2Z" />
+          </svg>
+          Отправить в WhatsApp
+        </button>
+
+        <p class="contact-form__hint">
+          Откроется WhatsApp с готовым сообщением — останется нажать «Отправить».
+        </p>
+      </form>
     </div>
   </div>
 </section>
 
 <section class="section section--surface faq" id="faq" aria-labelledby="faq-title">
-  <div class="container">
-    <p class="eyebrow">Вопросы</p>
-    <h2 id="faq-title">Частые вопросы</h2>
+  <div class="container faq__grid">
+    <div class="faq__intro">
+      <p class="eyebrow">Вопросы</p>
+      <h2 id="faq-title">Частые вопросы</h2>
+      <p>
+        Не нашли ответ на свой вопрос? Напишите нам — разберёмся
+        и ответим по делу.
+      </p>
+    </div>
 
-    <div class="faq__placeholder">
-      Раздел FAQ в разработке — вопросы и ответы появятся здесь.
+    <div class="faq__list">
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Нужна ли CRM небольшому бизнесу?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Если заявки приходят из нескольких каналов и их обрабатывает больше
+            одного человека — да. CRM нужна не для отчётов ради отчётов, а чтобы
+            ни одно обращение не терялось и было видно, на каком этапе каждая
+            сделка. Если у вас пара клиентов в неделю, честно скажем, что
+            пока достаточно таблицы.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Сколько стоит внедрение amoCRM?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <!-- TODO: заменить XX XXX ₸ на реальную стартовую цену -->
+          <p>
+            Стоимость зависит от количества воронок, интеграций и сотрудников.
+            Небольшие проекты начинаются от XX XXX ₸. Точную сумму называем после
+            разбора задачи и фиксируем её до начала работ — она не меняется
+            в процессе.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Лицензию amoCRM нужно оплачивать отдельно?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Да. amoCRM — это подписка, которую вы оплачиваете напрямую сервису,
+            за каждого пользователя. Наша работа — настройка и внедрение, она
+            считается отдельно. Поможем выбрать тариф, чтобы не переплачивать за
+            лишние возможности. Аккаунт и все данные в нём принадлежат вам.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Как проходит оплата?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            После завершения работ. Сначала мы показываем готовую систему на
+            демонстрации, вносим правки, и только когда вы принимаете результат,
+            вы платите.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Сколько времени занимает внедрение?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Зависит от объёма: простая настройка воронки делается быстрее, чем
+            проект с сайтом и несколькими интеграциями. Сроки по каждому этапу
+            мы фиксируем в плане ещё до начала работ, чтобы вы заранее знали,
+            когда всё будет готово.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Придётся ли останавливать работу отдела продаж?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Нет. Мы настраиваем систему параллельно с вашей текущей работой,
+            переносим данные и переключаем команду в согласованный момент.
+            Менеджеры продолжают принимать заявки как обычно.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>У нас уже есть сайт или CRM. Можно работать с тем, что есть?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Да, начинать с нуля не обязательно. Если у вас уже есть amoCRM —
+            доработаем её под ваши процессы. Если есть сайт — подключим его формы
+            к CRM, чтобы заявки попадали туда автоматически. Если что-то проще
+            переделать, чем чинить, скажем об этом прямо и объясним почему.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Можно ли подключить WhatsApp, Instagram и Telegram?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Да. Сообщения из мессенджеров будут приходить прямо в CRM, и
+            менеджер ответит клиенту, не переключаясь между приложениями. Часть
+            каналов подключается через сторонние сервисы со своей подпиской —
+            заранее скажем, сколько это стоит.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Вы обучите сотрудников? А если они не захотят пользоваться CRM?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Обучим: покажем, как вести сделку, что делать на каждом этапе и как
+            не терять задачи. Сопротивление чаще всего возникает, когда CRM
+            добавляет работы. Поэтому мы строим систему вокруг того, как ваша
+            команда уже продаёт, и убираем ручную рутину — тогда пользоваться
+            ей становится проще, чем не пользоваться.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary class="faq__question">
+          <span>Что будет после запуска, если что-то сломается?</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </summary>
+        <div class="faq__answer">
+          <p>
+            Мы не исчезаем после сдачи проекта. Сопровождаем систему после
+            внедрения: исправляем ошибки, отвечаем на вопросы команды и
+            дорабатываем CRM, когда меняются ваши процессы.
+          </p>
+        </div>
+      </details>
     </div>
   </div>
 </section>

@@ -49,6 +49,65 @@
   display: none;
 }
 
+/*
+  Подсказка при заходе на сайт: кнопка «пульсирует» кольцом,
+  а маркер на иконке покачивается, будто что-то пишет.
+  Класс .theme-toggle--hint ставит theme.js на ~2.5 секунды.
+*/
+
+.theme-toggle {
+  position: relative;
+}
+
+.theme-toggle::after {
+  position: absolute;
+  inset: -2px;
+  border: 2px solid var(--lime);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-toggle--hint::after {
+  animation: theme-hint-ring 0.85s ease-out 3;
+}
+
+.theme-toggle--hint .theme-toggle__icon {
+  transform-origin: 20% 85%;
+  animation: theme-hint-scribble 0.85s ease-in-out 3;
+}
+
+@keyframes theme-hint-ring {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.35, 1.6);
+  }
+}
+
+@keyframes theme-hint-scribble {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20% {
+    transform: rotate(-22deg) translateY(-1px);
+  }
+
+  45% {
+    transform: rotate(14deg);
+  }
+
+  70% {
+    transform: rotate(-10deg);
+  }
+}
+
 html[data-theme="paper"] .theme-toggle__to-paper {
   display: none;
 }
@@ -159,6 +218,10 @@ html[data-theme="paper"] .theme-toggle {
   background: var(--sheet);
   color: var(--paper);
   box-shadow: 2px 2px 0 var(--paper);
+}
+
+html[data-theme="paper"] .theme-toggle::after {
+  border-color: var(--paper);
 }
 
 html[data-theme="paper"] .theme-toggle:hover {
@@ -379,13 +442,68 @@ html[data-theme="paper"] .contact::after {
   opacity: 0.3;
 }
 
-html[data-theme="paper"] .contact__note {
-  color: var(--accent-text);
+html[data-theme="paper"] .contact-form input[type="text"],
+html[data-theme="paper"] .contact-form textarea {
+  border: 1.5px solid var(--paper);
+  background: var(--sheet);
 }
 
-html[data-theme="paper"] .faq__placeholder {
+html[data-theme="paper"] .contact-form input[type="text"]:focus,
+html[data-theme="paper"] .contact-form textarea:focus {
   border-color: var(--paper);
-  background: rgba(255, 253, 248, 0.5);
+  box-shadow: 3px 3px 0 var(--lime);
+}
+
+html[data-theme="paper"] .contact-form__option span {
+  border: 1.5px solid var(--paper);
+  background: var(--sheet);
+}
+
+html[data-theme="paper"] .contact-form__option:hover span {
+  border-color: var(--paper);
+  box-shadow: 2px 2px 0 var(--paper);
+}
+
+html[data-theme="paper"] .contact-form__option input:checked + span {
+  border-color: var(--paper);
+  background: var(--lime);
+  color: var(--paper);
+  box-shadow: 2px 2px 0 var(--paper);
+}
+
+html[data-theme="paper"] .contact-form__option input:focus-visible + span {
+  outline-color: var(--paper);
+}
+
+html[data-theme="paper"] .contact-form__error {
+  color: #b3261e;
+}
+
+html[data-theme="paper"] .faq__list,
+html[data-theme="paper"] .faq__item {
+  border-color: var(--paper);
+}
+
+html[data-theme="paper"] .faq__question:hover {
+  color: var(--paper);
+}
+
+html[data-theme="paper"] .faq__question:hover > span:first-child {
+  background: linear-gradient(transparent 60%, var(--lime) 60% 92%, transparent 92%);
+}
+
+html[data-theme="paper"] .faq__question:focus-visible {
+  outline-color: var(--paper);
+}
+
+html[data-theme="paper"] .faq__icon {
+  border: 1.5px solid var(--paper);
+  background: var(--sheet);
+}
+
+html[data-theme="paper"] .faq__item[open] .faq__icon {
+  border-color: var(--paper);
+  background: var(--lime);
 }
 
 @media (max-width: 860px) {
