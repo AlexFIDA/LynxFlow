@@ -170,23 +170,31 @@ html[data-theme="paper"] .site-footer {
   background-image: var(--paper-grain);
 }
 
-/* Маркер: лаймовая полоса под текстом, как выделитель */
+/*
+  Маркер: лаймовая заливка на всю высоту текста, как выделителем.
+  Неровные скругления делают край похожим на след маркера.
+*/
 
 html[data-theme="paper"] .hero h1 span,
 html[data-theme="paper"] .brand span {
   color: var(--paper);
-  background: linear-gradient(
-    176deg,
-    transparent 0 52%,
-    var(--lime) 52% 90%,
-    transparent 90%
-  );
+  background: var(--lime);
+  border-radius: 0.12em 0.3em 0.16em 0.26em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
 
+/* inline-block: заливка ограничена своей строкой и не наезжает на строку выше */
 html[data-theme="paper"] .hero h1 span {
-  padding: 0 0.08em;
+  display: inline-block;
+  margin-top: 0.14em;
+  padding: 0.06em 0.12em 0.02em;
+  line-height: 0.9;
+}
+
+html[data-theme="paper"] .brand span {
+  margin-left: 1px;
+  padding: 1px 3px;
 }
 
 html[data-theme="paper"] .eyebrow,
@@ -210,7 +218,15 @@ html[data-theme="paper"] .site-nav a:focus-visible,
 html[data-theme="paper"] .footer-nav a:hover,
 html[data-theme="paper"] .footer-nav a:focus-visible {
   color: var(--paper);
-  background: linear-gradient(transparent 60%, var(--lime) 60% 92%, transparent 92%);
+  background: var(--lime);
+}
+
+html[data-theme="paper"] .site-nav a,
+html[data-theme="paper"] .footer-nav a {
+  margin: -3px -6px;
+  padding: 3px 6px;
+  border-radius: 3px 6px 4px 5px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 html[data-theme="paper"] .theme-toggle {
@@ -263,6 +279,7 @@ html[data-theme="paper"] .hero-art > p {
 
 html[data-theme="paper"] .hero-art {
   display: grid;
+  min-height: 0;
   margin: 0;
   overflow: visible;
   place-items: center;
@@ -381,9 +398,10 @@ html[data-theme="paper"] .crm-node:hover {
 
 html[data-theme="paper"] .crm-node strong {
   justify-self: center;
-  padding: 0 0.1em;
+  padding: 0.08em 0.14em 0.02em;
+  border-radius: 0.1em 0.2em 0.12em 0.18em;
   color: var(--paper);
-  background: linear-gradient(transparent 45%, var(--lime) 45% 88%, transparent 88%);
+  background: var(--lime);
 }
 
 /* Тарифы */
@@ -488,8 +506,17 @@ html[data-theme="paper"] .faq__question:hover {
   color: var(--paper);
 }
 
+html[data-theme="paper"] .faq__question > span:first-child {
+  margin: -2px -6px;
+  padding: 2px 6px;
+  border-radius: 3px 6px 4px 5px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background 0.15s ease;
+}
+
 html[data-theme="paper"] .faq__question:hover > span:first-child {
-  background: linear-gradient(transparent 60%, var(--lime) 60% 92%, transparent 92%);
+  background: var(--lime);
 }
 
 html[data-theme="paper"] .faq__question:focus-visible {

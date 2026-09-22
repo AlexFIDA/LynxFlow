@@ -56,7 +56,7 @@ h2,
   font-family: var(--display);
   font-weight: 700;
   letter-spacing: 0.005em;
-  line-height: 0.96;
+  line-height: 1.12;
   text-transform: uppercase;
 }
 
@@ -261,7 +261,7 @@ select {
 }
 
 .section {
-  padding: clamp(72px, 10vw, 150px) 0;
+  padding: clamp(56px, 6.5vw, 100px) 0;
 }
 
 .section--dark {
@@ -402,7 +402,7 @@ select {
   }
 
   .section {
-    padding: 68px 0;
+    padding: 56px 0;
   }
 
   h1 {
